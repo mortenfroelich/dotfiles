@@ -18,4 +18,9 @@ TODO: Automate theese steps, look at seeding, etc.
 
 # Configure system
 1) Download configuration
-
+  a) Install git and clone dotfiles repo
+```
+sudo apt-get install git
+git clone https://github.com/mortenfroelich/dotfiles
+```
+  b) Run install.sh `sudo dotfiles/install.sh`

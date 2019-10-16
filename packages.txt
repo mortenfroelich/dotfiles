@@ -1,0 +1,42 @@
+# Configuration
+stow
+# Editors
+vim
+vim-doc
+vim-scripts
+vim-nox
+# Drivers Need to be moved to machine specific file
+firmware-linux-nonfree
+libgl1-mesa-dri
+xserver-xorg-video-ati
+firmware-iwlwifi
+firmware-realtek
+# Window manager
+xmonad
+libghc-xmonad-dev
+libghc-xmonad-contrib-dev
+suckless-tools
+libghc-xmonad-doc
+libghc-xmonad-contrib-doc
+libghc-xmonad-extras-dev
+libghc-xmonad-extras-doc
+#image viewer used to display background might not be needed when running xmonad in gnome
+#feh
+#dzen2
+#xtrlock
+# Coding
+git
+build-essential
+cmake
+# Utils
+keepassx
+mplayer
+fonts-inconsolata
+fonts-powerline
+cmus
+cmus-plugin-ffmpeg
+ffmpeg
+zsh
+curl
+xclip
+tree

@@ -1,0 +1,6 @@
+# Firmware needed for the dell studio to function
+firmware-linux-nonfree
+libgl1-mesa-dri
+xserver-xorg-video-ati
+firmware-iwlwifi
+firmware-realtek
