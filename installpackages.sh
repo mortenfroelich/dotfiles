@@ -7,8 +7,9 @@ do
 	esac
 done
 # Update and upgrade current packages.
-#apt-get update
-#apt-get upgrade
+apt-get update
+apt-get upgrade
+
 # Install machine dependant firmware if applicable
 if [ "$MACHINE" == "dellstudio" ];then
 	Firmware=$(grep -v '#' dellstudiofirmware.txt)
@@ -17,6 +18,7 @@ if [ "$MACHINE" == "dellstudio" ];then
 		apt-get install -s -y $package
 	done
 fi
+
 # Install the packages found in packages.txt ignoring # lines
 if (( $EUID != 0 )); then
 	echo "Please run as root"
