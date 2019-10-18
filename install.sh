@@ -1,9 +1,11 @@
 #!/bin/sh
 
 #require root
-#check installed packages.
+
+sudo ./installpackages.sh
 
 stow vim
+./setupVundle.sh
 stow xmonad
 stow zsh
 stow config

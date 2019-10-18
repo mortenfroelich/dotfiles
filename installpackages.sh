@@ -15,7 +15,7 @@ if [ "$MACHINE" == "dellstudio" ];then
 	Firmware=$(grep -v '#' dellstudiofirmware.txt)
 	for package in $Firmware
 	do
-		apt-get install -s -y $package
+		apt-get install -y $package
 	done
 fi
 
@@ -27,5 +27,5 @@ fi
 Packages=$(grep -v '#' packages.txt)
 for package in $Packages
 do
-	apt-get install -s -y $package
+	apt-get install -y $package
 done
