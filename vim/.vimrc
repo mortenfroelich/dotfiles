@@ -16,7 +16,8 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'vim-scripts/indentpython.vim'
-Bundle 'valloric/YouCompleteMe'
+"currently not working look at fix.. at some point.
+"Bundle 'valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'altercation/vim-colors-solarized'
@@ -41,7 +42,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-colorscheme solarized
+silent! colorscheme solarized
 
 "highlight BadWhitespace guidbg=red ctermbg=red
 

@@ -6,11 +6,21 @@ do
 		m) MACHINE=${OPTARG};;
 	esac
 done
+# Add contrib and non-free sources
+apt-add-repository contrib
+apt-add-repository non-free
 # Update and upgrade current packages.
 apt-get update
 apt-get upgrade
 
 # Install machine dependant firmware if applicable
+if [ "$MACHINE" == "desktop" ];then
+	Firmware=$(grep -v '#' desktopfirmware.txt)
+	for package in $Firmware
+	do
+		apt-get install -y $package
+	done
+fi
 if [ "$MACHINE" == "dellstudio" ];then
 	Firmware=$(grep -v '#' dellstudiofirmware.txt)
 	for package in $Firmware
