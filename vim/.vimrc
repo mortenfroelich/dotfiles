@@ -20,7 +20,8 @@ Plugin 'vim-scripts/indentpython.vim'
 "Bundle 'valloric/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'lifepillar/vim-solarized8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'plytophogy/vim-virtualenv'
@@ -42,7 +43,8 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-silent! colorscheme solarized
+silent! colorscheme solarized8
+"set termguicolors
 
 "highlight BadWhitespace guidbg=red ctermbg=red
 
@@ -84,3 +86,5 @@ let g:syntastic_check_on_wq = 0
 set hidden
 set history=100
 set number
+let mapleader = " "
+nmap <leader>dp :set path+=~/dotfiles/**<CR>

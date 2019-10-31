@@ -6,4 +6,5 @@ if [ ! -f "$FIREFOX" ]; then
 	sudo ln -s "$FIREFOX" /usr/local/bin/firefox
 	rm ~/FirefoxSetup.tar.bz2
 	sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/firefox/firefox 200 && sudo update-alternatives --set x-www-browser /opt/firefox/firefox
+	sudo cp ~/dotfiles/firefox/firefox.desktop /usr/share/applications
 fi

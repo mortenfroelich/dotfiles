@@ -5,17 +5,20 @@ vim
 vim-doc
 vim-scripts
 vim-nox
+# Terminal
+rxvt-unicode
 # Window manager
-xmonad
-libghc-xmonad-dev
-libghc-xmonad-contrib-dev
+#xmonad
+#libghc-xmonad-dev
+#libghc-xmonad-contrib-dev
 suckless-tools
-libghc-xmonad-doc
-libghc-xmonad-contrib-doc
-libghc-xmonad-extras-dev
-libghc-xmonad-extras-doc
+i3
+#libghc-xmonad-doc
+#libghc-xmonad-contrib-doc
+#libghc-xmonad-extras-dev
+#libghc-xmonad-extras-doc
 #image viewer used to display background might not be needed when running xmonad in gnome
-#feh
+feh
 #dzen2
 #xtrlock
 # Coding
@@ -34,3 +37,4 @@ zsh
 curl
 xclip
 tree
+youtube-dl

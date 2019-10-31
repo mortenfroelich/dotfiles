@@ -7,6 +7,7 @@ import XMonad.Prompt
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.Shell
 import XMonad.Hooks.Script
+import XMonad.Config.Kde
 import System.Exit
 
 alert = dzenConfig return . show
@@ -19,11 +20,8 @@ systemPromptCmds = [
         ("Restart", restart "xmonad" True)
     ]
 
-main = xmonad $ defaultConfig
-    { normalBorderColor = "#272727"
-    , focusedBorderColor = "#000f84"
-    , modMask = mod4Mask
-    , terminal = "konsole"
+main = xmonad $ kde4Config
+    { modMask = mod4Mask
     , startupHook = do
         spawn "~/config/loadkeyboard.sh"
     }
@@ -32,8 +30,8 @@ main = xmonad $ defaultConfig
     , ("<Print>", raiseVolume 3 >>= alert)
     , ("<Pause>", toggleMute >> return())
     ]
-    `additionalKeys`
-    [ ((mod4Mask .|. shiftMask, xK_q), xmonadPromptC systemPromptCmds defaultXPConfig)]
+--    `additionalKeys`
+--    [ ((mod4Mask .|. shiftMask, xK_q), xmonadPromptC systemPromptCmds defaultXPConfig)]
  
 --    , keys = myKeys <+> keys def }
 --
