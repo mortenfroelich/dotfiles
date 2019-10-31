@@ -31,6 +31,8 @@ bindsym $mod+Return exec $term
 # kill focused window
 bindsym $mod+q kill
 
+for_window [class="Keepassx"] floating enable
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec $menu
 # There also is the (new) i3-dmenu-desktop which only displays applications

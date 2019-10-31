@@ -71,6 +71,9 @@
 	rmpound = !"git status --porcelain | awk '/^\\??.*\\/#[^\\/]*#$/{print $2}' | xargs rm -v"
 	rmuntracked = !"git status --porcelain | awk '/^\\?/{print $2}' | xargs rm -v"
 	todo = !"git diff --name-only origin/master | xargs grep -i -C3 '@todo'"
+
+	# Mirror hg workflow of outgoing changes. log of changes reachable from HEAD but excluding ones reachable frmo upstream
+	out = "!git --no-pager log --oneline --graph @{upstream}..HEAD"
 [merge]
 	tool = vimdiff
 [core]

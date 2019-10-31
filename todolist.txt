@@ -3,8 +3,6 @@ add license and contribution info
 mount nas in fstab, probably using smb.. requires cifs
 fix fans
 clean up packages
-look at slim as login manager
 make a final call between gnome and kde.. start trying without.. vim-gtk3 for gnome vim-gtk2 for kde
 update firefox, script perhaps
 fix vim?! vim+gtk gives vim load error
-setup status, make it specific for desktop/laptop.. add volume, samba mounted, remove ipv6 wireless, battery, memory?
