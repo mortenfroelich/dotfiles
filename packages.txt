@@ -8,24 +8,16 @@ vim-nox
 # Terminal
 rxvt-unicode
 # Window manager
-#xmonad
-#libghc-xmonad-dev
-#libghc-xmonad-contrib-dev
 suckless-tools
 i3
-#libghc-xmonad-doc
-#libghc-xmonad-contrib-doc
-#libghc-xmonad-extras-dev
-#libghc-xmonad-extras-doc
 #image viewer used to display background might not be needed when running xmonad in gnome
 feh
-#dzen2
-#xtrlock
 # Coding
 git
 build-essential
 cmake
 # Utils
+cifs-utils
 keepassx
 mplayer
 fonts-inconsolata

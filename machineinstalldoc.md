@@ -1,3 +1,4 @@
+When starting the boot installer remember to pick the UEFI boot partition otherwise the installer loads with the legacy bootloader installer.
 # Boot installer
 1) Select Language, Locale
 2) Network settings
