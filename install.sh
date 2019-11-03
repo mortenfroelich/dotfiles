@@ -1,7 +1,14 @@
 #!/bin/sh
+while getopts m: option
+do
+	case "${option}"
+		in
+		m) MACHINE=${OPTARG};;
+	esac
+done
 currentDir=$(pwd)
 
-sudo ./installpackages.sh
+sudo "./installpackages.sh -m $MACHINE"
 firefox/firefoxInstall.sh
 if [ ! -f "~/.oh-my-zsh" ]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
@@ -23,4 +30,10 @@ stow Xresources --ignore=.*\.swp
 xrdb -merge ~/.Xresources
 xrdb -merge ~/.Xdefaults
 ln -snf "$currentDir/fonts" ~/.local/share/fonts
+if [ "$MACHINE" == "desktop" ];then
+	stow i3desktop
+fi
+if [ "$MACHINE" == "dellstudio" ] || [ "$MACHINE" == "thinkpad" ];then
+	stow i3laptop
+fi
 stow i3 --ignore=.*\swp
