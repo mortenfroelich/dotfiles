@@ -37,3 +37,6 @@ if [ "$MACHINE" == "dellstudio" ] || [ "$MACHINE" == "thinkpad" ];then
 	stow i3laptop
 fi
 stow i3 --ignore=.*\swp
+
+#update remote of dotfile repo to use ssh
+git remote set-url origin git@github.com:mortenfroelich/dotfiles
