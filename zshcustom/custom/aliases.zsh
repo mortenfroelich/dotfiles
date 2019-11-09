@@ -9,3 +9,4 @@ alias ls='ls --color=tty'
 # shortcuts to often used folders
 alias dotfiles='cd ~/dotfiles'
 alias edots='pushd ~/dotfiles;vim . -X;popd'
+alias projects='cd /media/nas/projects'

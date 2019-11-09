@@ -4,7 +4,7 @@ stow
 vim
 vim-doc
 vim-scripts
-vim-nox
+emacs
 # Terminal
 rxvt-unicode
 # Window manager
