@@ -101,12 +101,8 @@
 (add-to-list 'auto-mode-alist '("\\.twig$" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.restclient$" . restclient-mode))
 
-;;; Use pcomplete because it helps in org-mode
-;;; TODO find out if there is a way to feed this into Company instead
-;; (add-to-list 'completion-at-point-functions 'pcomplete)
-
 ;;; My own configurations, which are bundled in my dotfiles.
-(require 'init-platform)
+;;(require 'init-platform) TODO figure out if this is needed..
 (require 'init-global-functions)
 
 ;;; Required by init-maps, so it appears up here.
@@ -148,10 +144,8 @@
 (require 'init-fonts)
 (require 'init-gtags)
 (require 'init-evil)
-(require 'init-twitter)
 (require 'init-maps)
 (require 'init-w3m)
-(require 'init-php)
 (require 'init-flycheck)
 (require 'init-tmux)
 
@@ -167,19 +161,7 @@
 (use-package visual-fill-column :ensure t)
 
 ;; Org Mode
-(add-to-list 'load-path (expand-file-name "periodic-commit-minor-mode" user-emacs-directory))
 (require 'init-org)
-
-;; Just while I'm working on it.
-(add-to-list 'load-path (expand-file-name "octopress-mode" user-emacs-directory))
-(use-package octopress
-  :ensure t
-  :commands (octopress-status octopress-mode)
-  :config
-  (require 'markdown-mode)
-  (add-hook 'markdown-mode-hook
-            (lambda ()
-              (octopress-minor-mode t))))
 
 (use-package all-the-icons
   :ensure t)
@@ -297,13 +279,6 @@
   (setq js2-strict-missing-semi-warning nil)
   (setq js2-missing-semi-one-line-override t))
 
-(use-package exec-path-from-shell
-  :ensure t
-  :defer t
-  :config
-  (when (memq window-system '(mac ns))
-    (exec-path-from-shell-initialize)))
-
 (use-package helm
   :ensure t
   :diminish helm-mode
@@ -401,7 +376,6 @@ COMMAND, ARG, IGNORED are the arguments required by the variable
                                   (setq-local auto-fill-inhibit-regexp "{% [a-zA-Z]+")
                                   (flyspell-mode))))
 
-(use-package php-extras :ensure t :defer t)
 (use-package sublime-themes :ensure t)
 (use-package sunshine
   :ensure t
@@ -416,19 +390,6 @@ COMMAND, ARG, IGNORED are the arguments required by the variable
                         (expand-file-name "sunshine-appid" user-emacs-directory)))
   (setq sunshine-location "Boston, MA, USA")
   (setq sunshine-show-icons t))
-
-(use-package twittering-mode
-  :ensure t
-  :commands twit
-  :config
-  (add-hook 'twittering-mode-hook
-            (lambda ()
-              (define-key twittering-mode-map (kbd ",o") 'delete-other-windows)
-              (define-key twittering-mode-map (kbd ",b") 'helm-mini)
-              (define-key twittering-mode-map (kbd "C-c r") 'twittering-retweet)))
-  (setq twittering-use-native-retweet t)
-  (setq twittering-default-show-replied-tweets 3)
-  (setq twittering-use-icon-storage t))
 
 (use-package web-mode
   :ensure t
@@ -495,8 +456,6 @@ COMMAND, ARG, IGNORED are the arguments required by the variable
   (setq magit-push-always-verify nil)
   (setq magit-last-seen-setup-instructions "1.4.0")
   (magit-define-popup-switch 'magit-log-popup ?f "first parent" "--first-parent"))
-
-(require 'periodic-commit-minor-mode)
 
 (use-package mmm-mode
   :ensure t
@@ -721,15 +680,6 @@ The IGNORED argument is... Ignored."
                           (setq sh-basic-offset 2)
                           (setq sh-indentation 2)))
 
-;;; Twittering mode:
-(setq twittering-use-master-password t)
-(add-hook 'twittering-mode-hook (lambda ()
-                                  (define-key twittering-mode-map (kbd "C-c C-a") 'twittering-favorite)
-                                  (define-key twittering-mode-map (kbd ",b") 'helm-mini)))
-
-(add-hook 'twittering-edit-mode-hook (lambda ()
-                                       (flyspell-mode)))
-
 ;;; Javascript mode:
 (add-hook 'javascript-mode-hook (lambda ()
                                   (set-fill-column 120)
@@ -740,30 +690,6 @@ The IGNORED argument is... Ignored."
 (add-hook 'html-mode-hook (lambda ()
                             (setq sgml-basic-offset 2)
                             (setq indent-tabs-mode nil)))
-
-(defun find-php-functions-in-current-buffer ()
-  "Find lines that appear to be PHP functions in the buffer.
-
-This function performs a regexp forward search from the top
-\(point-min) of the buffer to the end, looking for lines that
-appear to be PHP function declarations.
-
-The return value of this function is a list of cons in which
-the car of each cons is the bare function name and the cdr
-is the buffer location at which the function was found."
-  (save-excursion
-    (goto-char (point-min))
-    (let (res)
-      (save-match-data
-        (while (re-search-forward  "^ *\\(public \\|private \\|protected \\|static \\)*?function \\([^{]+\\)" nil t)
-          (let* ((fn-name (save-match-data (match-string-no-properties 2)))
-                 (fn-location (save-match-data (match-beginning 0))))
-            (setq res
-                  (append res
-                          (list `(,fn-name . ,fn-location)))))))
-      res)))
-
-(put 'narrow-to-region 'disabled nil)
 
 ;;; sRGB doesn't blend with Powerline's pixmap colors, but is only
 ;;; used in OS X. Disable sRGB before setting up Powerline.

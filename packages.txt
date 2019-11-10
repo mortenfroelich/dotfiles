@@ -30,3 +30,6 @@ curl
 xclip
 tree
 youtube-dl
+silversearcher-ag
+pandoc
+global

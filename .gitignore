@@ -1,3 +1,10 @@
 #xmonad stuff
 xmonad-x86_64-linux
 xmonad/.xmonad/prompt-history
+#emacs compiled stuff
+emacs/.emacs.d/elpa
+emacs/.emacs.d/eshell
+emacs/.emacs.d/evil-rebellion/.gitignore
+emacs/.emacs.d/lisp/.dir-locals.el
+emacs/.emacs.d/projectile-bookmarks.eld
+emacs/.emacs.d/snippets/markdown-mode/.yas-compiled-snippets.el

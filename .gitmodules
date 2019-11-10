@@ -1,0 +1,3 @@
+[submodule "emacs/.emacs.d/fence-edit"]
+	path = emacs/.emacs.d/fence-edit
+	url = https://github.com/aaronbieber/fence-edit.el

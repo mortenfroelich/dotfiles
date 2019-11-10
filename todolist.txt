@@ -1,1 +1,4 @@
 setup emacs
+fix gtags error on init emacs
+fix call to package repos on init emacs
+install docker

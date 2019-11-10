@@ -3,7 +3,7 @@
 ;;; Code:
 (defun air--config-evil-leader ()
   "Configure evil leader mode."
-  (evil-leader/set-leader ",")
+  (evil-leader/set-leader " ")
   (evil-leader/set-key
     "#"  'server-edit
     ","  'other-window
@@ -52,9 +52,6 @@
                   eshell-mode
                   flycheck-error-list-mode
                   git-rebase-mode
-                  octopress-mode
-                  octopress-server-mode
-                  octopress-process-mode
                   org-capture-mode
                   sunshine-mode
                   term-mode))
@@ -64,8 +61,7 @@
   (delete 'eshell-mode evil-insert-state-modes)
 
   ;; Use insert state in these additional modes.
-  (dolist (mode '(twittering-edit-mode
-                  magit-log-edit-mode))
+  (dolist (mode '(magit-log-edit-mode))
     (add-to-list 'evil-insert-state-modes mode))
 
   (add-to-list 'evil-buffer-regexps '("\\*Flycheck"))
@@ -125,10 +121,9 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+  )
 
   ;; My own Ex commands.
-  (evil-ex-define-cmd "om" 'octopress-status))
-
 (defun air--apply-evil-other-package-configs ()
   "Apply evil-dependent settings specific to other packages."
 
@@ -143,12 +138,6 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (interactive)
     (search-backward-regexp "\\(>>>>\\|====\\|<<<<\\)" (point-min) t)
     (move-beginning-of-line nil))
-
-  ;; PHP
-  (evil-define-key 'normal php-mode-map (kbd "]n") 'next-conflict-marker)
-  (evil-define-key 'normal php-mode-map (kbd "[n") 'previous-conflict-marker)
-  (evil-define-key 'visual php-mode-map (kbd "]n") 'next-conflict-marker)
-  (evil-define-key 'visual php-mode-map (kbd "[n") 'previous-conflict-marker)
 
   ;; Dired
   (evil-define-key 'normal dired-mode-map (kbd "C-e") 'dired-toggle-read-only))
