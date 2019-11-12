@@ -21,6 +21,13 @@ if [ "$MACHINE" == "desktop" ];then
 		apt-get install -y $package
 	done
 fi
+if [ "$MACHINE" == "thinkpad" ];then
+	Firmware=$(grep -v '#' thinkpadfirmware.txt)
+	for package in $Firmware
+	do
+		apt-get install -y $package
+	done
+fi
 if [ "$MACHINE" == "dellstudio" ];then
 	Firmware=$(grep -v '#' dellstudiofirmware.txt)
 	for package in $Firmware

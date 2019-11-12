@@ -24,7 +24,7 @@ fi
 
 stow vim --ignore=.*\.swp
 ./setupVundle.sh
-stow xmonad --ignore=.*\.swp
+#stow xmonad --ignore=.*\.swp
 stow zsh --ignore=.*\.swp
 stow zshcustom --target=/home/morten/.oh-my-zsh/ --ignore=.*\.swp
 stow config --ignore=.*\.swp

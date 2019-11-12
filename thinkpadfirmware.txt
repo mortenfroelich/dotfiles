@@ -1,0 +1,2 @@
+# Firmware needed for the thinkpad to function
+firmware-iwlwifi

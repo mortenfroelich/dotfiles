@@ -2,7 +2,8 @@
 
 pushd /home/morten
 sudo mkdir /media/usb
-sudo mount /dev/sdb1 /media/usb
+#TODO make the usb mount point a parameter since it will differ from installation.
+sudo mount /dev/sda1 /media/usb
 cp -r /media/usb/.ssh .
 mkdir Music
 cp -r /media/usb/Music/* Music/
