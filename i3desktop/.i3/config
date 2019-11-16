@@ -32,6 +32,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 
 for_window [class="Keepassx"] floating enable
+for_window [window_role="GtkFileChooserDialog"] floating enable
+for_window [window_role="About"] floating enable
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec $menu
@@ -171,12 +173,22 @@ bindsym $mod+r mode "resize"
 bar {
         status_command $barcmd --config ~/.i3/status.conf
 }
+# Move certain programs to default locations
+for_window [class="Firefox"] move to workspace $ws2
+for_window [class="Emacs"] move to workspace $ws1
+for_window [class="Keepassx"] move to workspace $ws3
+
 # auto run commands
 # set background and load keyboard config
 exec --no-startup-id feh --bg-fill $HOME/Pictures/background.jpg
 exec --no-startup-id dropbox start
-exec $HOME/config/loadkeyboard.sh
 
 # run the merge for good colors
 exec xrdb -merge $HOME/.Xresources
 exec xrdb -merge $HOME/.Xdefaults
+
+# auto start a terminal, emacs, firefox and keepassx
+exec firefox
+exec emacs
+exec keepassx
+exec $term
