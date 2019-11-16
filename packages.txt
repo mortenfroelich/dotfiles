@@ -33,3 +33,5 @@ youtube-dl
 silversearcher-ag
 pandoc
 global
+nautilus-dropbox
+xdotool

@@ -2,3 +2,7 @@ setup emacs
 fix gtags error on init emacs
 fix call to package repos on init emacs
 install docker
+setup cloud sync, probably dropbox and move projects to dropbox backed on nas maybe?
+set emacs as default editor running as a server, figure out how it works from aarons maybe
+change colors in i3 to more solarized friendly see https://github.com/grakic/i3config/blob/master/config
+look at ls colors
